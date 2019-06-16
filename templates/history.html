@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+  <title>Home</title>
+  <script src="{{ url_for('static', filename='js/myScript.js') }}"></script>
+  <script>
+    document.write(
+      '<script src="http://' +
+      (location.host || '${1:localhost}').split(':')[0] +
+      ':${2:35729}/livereload.js?snipver=1"></' +
+      'script>'
+    );
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="/">发音</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/article/">读文章<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/review/">回顾</a>
+      </div>
+    </div>
+  </nav>
+  <div class="">
+
+    <div class="container">
+            <ul class="list-group">
+                {% for word in words %}
+                    <li class="list-group-item"><a href="{{ url_for('index', word=word) }}">{{ word }}</a></li>
+                {% endfor %}
+                  </ul>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="./js//bootstrap.bundle.js"></script>
+  <script src="./js/bootstrap.js"></script>
+</body>
+
+</html>

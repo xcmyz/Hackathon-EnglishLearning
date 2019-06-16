@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+  <title>Home</title>
+  <script src="{{ url_for('static', filename='js/myScript.js') }}"></script>
+  <script>
+    document.write(
+      '<script src="http://' +
+      (location.host || '${1:localhost}').split(':')[0] +
+      ':${2:35729}/livereload.js?snipver=1"></' +
+      'script>'
+    );
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <a class="navbar-brand" href="/">发音</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/article/">读文章<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/review/">回顾</a>
+      </div>
+    </div>
+  </nav>
+  <div class="">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto mt-10">
+          <div class="jumbotron text-center">
+            <form>
+              <div class="input-group mb-3">
+                <input type="text" id="input" class="form-control" placeholder="请输入单词" aria-label="Username"
+                  aria-describedby="basic-addon1" name="word">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit" id="button-addon2" onclick="update_word()"
+                    action='/word/'>确定</button>
+                </div>
+              </div>
+            </form>
+            <div class="container mt-5" onclick="location.href='/play/'">
+              <h1 class="display-3" id="word">{{ word }}</h1>
+            </div>
+            <div class="container mt-0 mb-0 cantselect ill" id="ill">
+              <img class="illimg mt-5" src="./img/podcast.png" alt="">
+            </div>
+            <div class="container mt-5 mb-5 cantselect scoretext" id="scoretext" onclick="change()">
+              <h1 class="display-4">得分</h1>
+              <h1 class="display-0" id="score">{{ score }}</h1>
+            </div>
+            <button type="button" id="record" class="btn btn-dark btn-lg btn-block" onclick="location.href='/judge/'">录音</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="./js//bootstrap.bundle.js"></script>
+  <script src="./js/bootstrap.js"></script>
+</body>
+
+</html>
